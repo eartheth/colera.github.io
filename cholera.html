@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cholera (อหิวาตกโรค) — Guide & Thailand History</title>
+  <meta name="description" content="What cholera is, how it spreads, symptoms, prevention and treatment, plus a timeline of major cholera events in Thailand." />
+  <style>
+    :root{
+      --bg: #0b1020;            --text:#e8eefc; --sub:#b9c6e6;
+      --card:#131a33;           --muted:#8aa0d2; --accent:#7cc4ff;
+      --ok:#38c172;             --warn:#ffb400;  --bad:#ff6b6b;
+      --border:#263057;
+    }
+    [data-theme="light"]{
+      --bg:#f7f9ff; --text:#0c1530; --sub:#35456b;
+      --card:#ffffff; --muted:#5a6c9e; --accent:#1967d2;
+      --ok:#15803d; --warn:#b45309; --bad:#b91c1c; --border:#d9e2ff;
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Poppins", Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, #1d2a52 0%, transparent 60%) , var(--bg);
+      color:var(--text);
+    }
+    a{color:var(--accent); text-decoration: none;}
+    a:hover{ text-decoration: underline; }
+    .container{ max-width:1100px; margin:0 auto; padding: 24px; }
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter:saturate(180%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; gap:14px; align-items:center; justify-content:space-between; padding:12px 24px;
+    }
+    .nav .links{display:flex; gap:12px; flex-wrap:wrap}
+    .brand{font-weight:700; letter-spacing:.2px}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid var(--border); padding:8px 12px; border-radius:10px;
+      background:linear-gradient(180deg, color-mix(in oklab, var(--card) 70%, transparent), var(--card));
+      color:var(--text); cursor:pointer;
+    }
+    .hero{
+      padding:48px 24px 8px; display:grid; gap:16px;
+    }
+    .hero h1{font-size: clamp(28px, 3.4vw, 48px); line-height:1.15; margin:0;}
+    .hero p{max-width:900px; margin:0; color:var(--sub)}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px}
+    .card{
+      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+    @media(min-width:860px){ .span-6{grid-column: span 6} .span-4{grid-column: span 4}}
+    h2{margin:.2em 0 .4em; font-size: clamp(22px, 2.2vw, 30px)}
+    h3{margin: .8em 0 .5em; font-size: clamp(19px, 1.7vw, 24px)}
+    ul,ol{margin:.3em 0 .8em 1.2em}
+    .kpi{display:flex; gap:14px; flex-wrap:wrap}
+    .pill{
+      border:1px solid var(--border); border-radius:999px; padding:8px 12px; color:var(--muted); background: color-mix(in oklab, var(--card) 88%, transparent);
+    }
+    .toc{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .toc a{border:1px solid var(--border); padding:8px 10px; border-radius:10px; background:var(--card)}
+    .badge{font-size:.85em; color:var(--muted)}
+    .table{width:100%; border-collapse: collapse; font-size:.97rem}
+    .table th,.table td{border-bottom:1px solid var(--border); padding:10px 8px; vertical-align: top}
+    .table th{color:var(--muted); text-align:left; font-weight:600}
+    .callout{
+      border-left:4px solid var(--accent); padding:10px 14px; background: color-mix(in oklab, var(--card) 88%, transparent);
+      border-radius:8px;
+    }
+    footer{margin:36px 0 24px; color:var(--muted); font-size:.95rem}
+    .top{ position: fixed; right:16px; bottom:16px; }
+    .muted{color:var(--muted)}
+    code{background: color-mix(in oklab, var(--card) 86%, transparent); border:1px solid var(--border); padding:.1em .4em; border-radius:6px}
+    .legend{display:flex; gap:10px; flex-wrap:wrap}
+    .dot{display:inline-block; width:.75em; height:.75em; border-radius:50%}
+    .ok{background:var(--ok)} .warn{background:var(--warn)} .bad{background:var(--bad)}
+  </style>
+</head>
+<body data-theme="dark">
+<header>
+  <div class="nav container">
+    <div class="brand">💧 Cholera (อหิวาตกโรค)</div>
+    <nav class="links">
+      <a href="#basics">Basics</a>
+      <a href="#symptoms">Symptoms</a>
+      <a href="#prevention">Prevention</a>
+      <a href="#treatment">Treatment</a>
+      <a href="#global-history">Global History</a>
+      <a href="#thai-history">Thailand History</a>
+      <a href="#references">References</a>
+    </nav>
+    <button id="theme" class="btn" aria-label="Toggle light/dark">🌓 Theme</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Cholera — what it is, how to prevent it, and how it shaped Thailand's history</h1>
+    <p>
+      Cholera is a water- and food-borne disease caused by <em>Vibrio cholerae</em>.
+      It can cause sudden, severe watery diarrhea and dehydration but is highly treatable with prompt rehydration.
+      This page explains the basics and charts key moments of cholera in Thailand (สยาม/ไทย) from the 19th century to today.
+    </p>
+    <div class="kpi">
+      <span class="pill">Incubation: ~12 hours–5 days</span>
+      <span class="pill">Most infections: mild/asymptomatic</span>
+      <span class="pill">With proper care: CFR &lt; 1%</span>
+      <span class="pill">Thai name: <strong>อหิวาตกโรค</strong></span>
+    </div>
+    <div class="toc">
+      <a href="#basics">Basics</a>
+      <a href="#symptoms">Symptoms</a>
+      <a href="#prevention">Prevention</a>
+      <a href="#treatment">Treatment</a>
+      <a href="#global-history">Global pandemics</a>
+      <a href="#thai-history">Thailand timeline</a>
+      <a href="#today-2025">Today (2025)</a>
+      <a href="#references">References</a>
+    </div>
+  </section>
+
+  <section id="basics" class="card">
+    <h2>Basics</h2>
+    <p>
+      Cholera spreads through ingestion of water or food contaminated by feces containing toxigenic <em>V. cholerae</em>.
+      People in areas with unsafe water, poor sanitation, or inadequate hygiene are at highest risk. Many infected people have no symptoms but can shed bacteria for days.
+      Symptoms typically begin <strong>12 hours to 5 days</strong> after exposure.
+      Early oral rehydration saves lives; with organized care, mortality should be <strong>below 1%</strong>.
+      <span class="badge">Sources: WHO, CDC, PAHO</span>
+    </p>
+    <div class="grid">
+      <div class="card span-6">
+        <h3>Transmission & risk</h3>
+        <ul>
+          <li>Contaminated drinking water or ice; raw/undercooked seafood; food washed with unsafe water.</li>
+          <li>Outbreaks follow floods, infrastructure disruption, or crowded settings with limited sanitation.</li>
+          <li>Short-term carriers can shed bacteria for 1–10 days even without symptoms.</li>
+        </ul>
+      </div>
+      <div class="card span-6">
+        <h3>Prevention at a glance</h3>
+        <ul>
+          <li>Drink safe water (boiled, treated, or bottled); keep it covered.</li>
+          <li>Eat food that is <strong>cooked and served hot</strong>; avoid raw/undercooked seafood.</li>
+          <li>Wash hands with soap: before eating/preparing food and after using the toilet.</li>
+          <li>Use safe sanitation; treat/dispose of stool safely.</li>
+          <li>Oral cholera vaccines (OCV) are used in endemic areas and outbreak response; travelers to areas with <em>active transmission</em> may be advised vaccination.</li>
+        </ul>
+        <div class="legend">
+          <span><span class="dot ok"></span> Good practice</span>
+          <span><span class="dot warn"></span> Caution</span>
+          <span><span class="dot bad"></span> Avoid</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="symptoms" class="card">
+    <h2>Symptoms & warning signs</h2>
+    <ul>
+      <li>Sudden, profuse watery diarrhea (“rice-water” stools).</li>
+      <li>Vomiting, thirst, leg cramps; signs of dehydration (dry mouth, sunken eyes, little or no urination).</li>
+      <li>Severe cases can lead to shock and death within hours if untreated.</li>
+    </ul>
+    <div class="callout">
+      <strong>If you suspect cholera:</strong> start oral rehydration solution (ORS) immediately and seek medical care. Children with diarrhea benefit from zinc as advised by clinicians.
+    </div>
+  </section>
+
+  <section id="prevention" class="card">
+    <h2>Practical prevention</h2>
+    <div class="grid">
+      <div class="span-6">
+        <h3>Water, Sanitation & Hygiene (WASH)</h3>
+        <ol>
+          <li>Boil or properly chlorinate water; store in clean, closed containers.</li>
+          <li>Use latrines; clean high-touch surfaces regularly.</li>
+          <li>Food safety: cook thoroughly, serve hot, peel it or leave it.</li>
+        </ol>
+      </div>
+      <div class="span-6">
+        <h3>Oral Cholera Vaccines (OCV)</h3>
+        <p class="muted">
+          WHO-prequalified OCVs (e.g., Dukoral®, Euvichol-Plus®, Euvichol-S®) are used to protect communities during outbreaks and in endemic settings.
+          U.S.-approved <em>Vaxchora</em> is recommended for certain travelers (ages 2–64) to areas with active transmission. Ask local health authorities for current guidance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="treatment" class="card">
+    <h2>Treatment</h2>
+    <ul>
+      <li><strong>Immediate rehydration</strong> is lifesaving: ORS for all; IV fluids for severe dehydration.</li>
+      <li><strong>Antibiotics</strong> for severe cases as per local protocols; manage electrolytes.</li>
+      <li>With prompt, organized care, case-fatality rates should be <strong>&lt; 1%</strong>.</li>
+    </ul>
+  </section>
+
+  <section id="global-history" class="card">
+    <h2>Global history of cholera pandemics</h2>
+    <p class="muted">Seven major pandemics have been recorded since the 19th century:</p>
+    <table class="table">
+      <thead><tr><th>Pandemic</th><th>Years</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>1st</td><td>1817–1824</td><td>Originated in South Asia; spread across Asia incl. Siam (Thailand).</td></tr>
+        <tr><td>2nd</td><td>1826–1837</td><td>Reached Europe & the Americas.</td></tr>
+        <tr><td>3rd</td><td>1846–1860</td><td>Severe global impact.</td></tr>
+        <tr><td>4th</td><td>1863–1875</td><td>Middle East, Europe, Africa, Asia.</td></tr>
+        <tr><td>5th</td><td>1881–1896</td><td>Declining in Europe; persistent elsewhere.</td></tr>
+        <tr><td>6th</td><td>1899–1923</td><td>Recurrent waves.</td></tr>
+        <tr><td>7th (El Tor)</td><td>1961–present</td><td>Began in Indonesia; continues to cause outbreaks worldwide.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="thai-history" class="card">
+    <h2>Cholera in Thailand — key moments (ไทม์ไลน์ในไทย)</h2>
+    <table class="table">
+      <thead><tr><th>Year (CE / BE)</th><th>Reign</th><th>What happened</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>1820</strong> / <strong>2363</strong></td>
+          <td>King Rama II (รัชกาลที่ 2)</td>
+          <td>
+            First global pandemic reaches Siam via Penang and western ports; a catastrophic outbreak in Bangkok and nearby provinces.
+            Thai sources describe ~30,000 deaths in the capital region.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>1849</strong> / <strong>2392</strong></td>
+          <td>Rama III–IV transition</td>
+          <td>
+            Another major epidemic remembered as “ห่าลงปีระกา” (Year of the Rooster cholera), spreading from Bangkok to other provinces.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>1873</strong> / <strong>2416</strong></td>
+          <td>King Rama V (รัชกาลที่ 5)</td>
+          <td>Early R5 era outbreak; public-health modernization accelerated in subsequent decades.</td>
+        </tr>
+        <tr>
+          <td><strong>2007–2010</strong></td>
+          <td>Modern Thailand</td>
+          <td>
+            Nationwide spikes of cholera reported in 2007 (cases in 50 provinces).
+            Genetic studies identified <em>V. cholerae</em> O1 El Tor variants, including strains with classical <code>ctxB</code> allele.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="badge">Sources: Thai history magazines & university/health sites; peer-reviewed outbreak studies.</p>
+  </section>
+
+  <section id="today-2025" class="card">
+    <h2>Today (2025)</h2>
+    <p>
+      Cholera remains a global challenge. From <strong>1 Jan–17 Aug 2025</strong>, WHO received reports of
+      <strong>409,222 cases</strong> and <strong>4,738 deaths</strong> from 31 countries, with fluctuating risk by region and season.
+      Continuous investment in WASH, rapid case management, surveillance, and targeted OCV use is essential.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>What to do (quick checklist)</h2>
+    <ul>
+      <li>Only drink water that is boiled, treated, or sealed; use safe ice.</li>
+      <li>Eat cooked food served hot; avoid raw/undercooked seafood.</li>
+      <li>Wash hands with soap frequently; keep toilets and shared surfaces clean.</li>
+      <li>At first sign of watery diarrhea: start ORS; seek medical care promptly.</li>
+      <li>Ask local health authorities about current OCV guidance if you live in or travel to areas with active transmission.</li>
+    </ul>
+    <p class="muted">This page is informational and not a substitute for professional medical advice.</p>
+  </section>
+
+  <section id="references" class="card">
+    <h2>References & further reading</h2>
+    <ul>
+      <li>World Health Organization — Cholera fact sheet (Dec 5, 2024):
+        <a href="https://www.who.int/news-room/fact-sheets/detail/cholera">who.int/news-room/fact-sheets/detail/cholera</a>
+      </li>
+      <li>WHO Disease Outbreak News — Multi-country cholera update (Aug 2025):
+        <a href="https://www.who.int/emergencies/disease-outbreak-news/item/2025-DON579">who.int/.../2025-DON579</a>
+      </li>
+      <li>CDC — About Cholera (May 29, 2025):
+        <a href="https://www.cdc.gov/cholera/about/index.html">cdc.gov/cholera/about</a>
+      </li>
+      <li>PAHO/WHO — Cholera topic:
+        <a href="https://www.paho.org/en/topics/cholera">paho.org/en/topics/cholera</a>
+      </li>
+      <li>WHO — Oral cholera vaccines:
+        <a href="https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/cholera">who.int/.../diseases/cholera</a>
+      </li>
+      <li>CDC — Cholera vaccines (travel guidance, 2025):
+        <a href="https://www.cdc.gov/cholera/prevention/cholera-vaccines.html">cdc.gov/cholera/prevention/cholera-vaccines.html</a>
+      </li>
+      <li>History of cholera — overview & pandemics:
+        <a href="https://en.wikipedia.org/wiki/History_of_cholera">wikipedia.org/wiki/History_of_cholera</a>
+      </li>
+      <li>Thai historical accounts (in Thai): Silpa-mag articles and summaries of 1820/2363 and later outbreaks:
+        <a href="https://www.silpa-mag.com/history/article_24493">silpa-mag.com/history/article_24493</a>,
+        <a href="https://www.silpa-mag.com/history/article_44827">silpa-mag.com/history/article_44827</a>
+      </li>
+      <li>Mahidol University (i-Learning Clinic) recap of Thai epidemics incl. “ห่าลงปีระกา” (1849/2392):
+        <a href="https://il.mahidol.ac.th/th/i-learning-clinic/general-articles/%E0%B8%AA%E0%B8%87%E0%B8%84%E0%B8%A3%E0%B8%B2%E0%B8%A1-%E0%B9%82%E0%B8%A3%E0%B8%84%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B2%E0%B8%94-%E0%B9%83%E0%B8%99%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A7%E0%B8%B1/">il.mahidol.ac.th/.../โรคระบาด-ในประวัติ</a>
+      </li>
+      <li>Okada et al. 2010 (Thailand 2007 outbreak analysis, PMC):
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2861402/">pmc.ncbi.nlm.nih.gov/articles/PMC2861402/</a>
+      </li>
+      <li>Okada et al. 2012 (Thailand O1 genotypes, PLOS ONE):
+        <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0030863">journals.plos.org/plosone/article?id=10.1371/journal.pone.0030863</a>
+      </li>
+      <li>Incubation period review (systematic review):
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3677557/">pmc.ncbi.nlm.nih.gov/articles/PMC3677557/</a>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    Last updated: <span id="today"></span>.
+  </footer>
+</main>
+
+<a class="btn top" href="#top" title="Back to top">↑ Top</a>
+
+<script>
+  // Theme toggle with localStorage
+  (function(){
+    const root = document.body;
+    const key = "cholera-theme";
+    const btn = document.getElementById("theme");
+    const saved = localStorage.getItem(key);
+    if(saved === "light") root.setAttribute("data-theme","light");
+    btn.addEventListener("click", () => {
+      const isLight = root.getAttribute("data-theme")==="light";
+      root.setAttribute("data-theme", isLight ? "dark" : "light");
+      localStorage.setItem(key, isLight ? "dark":"light");
+    });
+    document.getElementById("today").textContent =
+      new Date().toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'});
+  })();
+</script>
+
+<!--
+Notes & factual anchors:
+- Basics, incubation, asymptomatic shedding, CFR <1% with care — WHO (Dec 2024), CDC, PAHO.
+- Global pandemics list — standard chronology (1st to 7th); 7th began in Indonesia in 1961 (WHO/CDC).
+- Thailand timeline:
+  • 1820/2363 Rama II catastrophic outbreak via Penang; Thai sources cite ~30,000 deaths in Bangkok area (Silpa-mag; Mahidol page).
+  • 1849/2392 “ห่าลงปีระกา” (Year of the Rooster cholera) — Thai sources.
+  • 1873/2416 early Rama V outbreak — Thai sources.
+  • 2007–2010 modern outbreaks; 2007 cases in 50 provinces; El Tor variants with classical ctxB — Okada 2010, 2012.
+- 2025 situation numbers — WHO Disease Outbreak News (Aug 2025).
+-->
+</body>
+</html>
