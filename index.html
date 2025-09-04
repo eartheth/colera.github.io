@@ -4,13 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cholera (อหิวาตกโรค) — Guide & Thailand History</title>
-  <meta name="description" content="What cholera is, how it spreads, symptoms, prevention and treatment, plus a timeline of its impact in Thailand." />
-  <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Quick embedded styling (replace with styles.css if you have one) */
     body {
       font-family: system-ui, sans-serif;
-      line-height: 1.6;
       margin: 0;
       background: #fdfdfd;
       color: #333;
@@ -18,42 +14,83 @@
     header, footer {
       background: #004d40;
       color: #fff;
-      padding: 1rem 2rem;
       text-align: center;
+      padding: 1rem;
     }
-    header h1, footer p { margin: 0; }
     .hero {
       background: #e0f7fa;
-      padding: 3rem 2rem;
+      padding: 2rem;
       text-align: center;
     }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-    .hero .lead { font-size: 1.2rem; max-width: 700px; margin: 0 auto 1.5rem; }
-    .kpi { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+    .hero h1 { margin: 0 0 1rem; }
+    .kpi { display: flex; justify-content: center; gap: .5rem; flex-wrap: wrap; }
     .pill {
-      background: #004d40;
-      color: #fff;
-      padding: .5rem 1rem;
+      background: #004d40; color: #fff;
+      padding: .3rem 1rem;
       border-radius: 50px;
       font-size: .9rem;
     }
     .container { max-width: 1000px; margin: auto; padding: 2rem; }
-    .stack { display: flex; flex-direction: column; gap: 2rem; }
     .card {
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,.1);
-      overflow: hidden;
+      margin-bottom: 2rem;
       display: flex;
       flex-wrap: wrap;
+      overflow: hidden;
     }
     .card.row { flex-direction: row; }
     .card.row.alt { flex-direction: row-reverse; }
-    .card .media { flex: 1 1 40%; min-width: 250px; }
-    .card .media img { width: 100%; height: auto; display: block; }
+    .card .media { flex: 1 1 40%; }
+    .card .media img { width: 100%; display: block; }
     .card .content { flex: 1 1 60%; padding: 1.5rem; }
     .card h2 { margin-top: 0; color: #004d40; }
-    footer { margin-top: 2rem; font-size: .9rem; }
+
+    /* Timeline Style */
+    .timeline {
+      position: relative;
+      margin: 2rem auto;
+      padding: 2rem 0;
+      max-width: 900px;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #004d40;
+      left: 50%;
+      margin-left: -2px;
+    }
+    .timeline-item {
+      padding: 1rem 2rem;
+      position: relative;
+      width: 50%;
+    }
+    .timeline-item .content {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.1);
+    }
+    .timeline-item.left { left: 0; text-align: right; }
+    .timeline-item.right { left: 50%; }
+    .timeline-item::before {
+      content: attr(data-year);
+      position: absolute;
+      top: 1rem;
+      width: 80px;
+      text-align: center;
+      background: #004d40;
+      color: #fff;
+      padding: .3rem .5rem;
+      border-radius: 20px;
+      font-size: .9rem;
+    }
+    .timeline-item.left::before { right: -90px; }
+    .timeline-item.right::before { left: -90px; }
   </style>
 </head>
 <body>
@@ -61,97 +98,81 @@
     <h1>Cholera Guide</h1>
   </header>
 
-  <main class="about">
+  <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="container">
-        <h1>Cholera (อหิวาตกโรค)</h1>
-        <p class="lead">
-          What it is, how to prevent it, and how it shaped Thailand's history.  
-          Cholera is a water- and food-borne disease caused by <em>Vibrio cholerae</em>,  
-          highly treatable with prompt rehydration.
-        </p>
-        <div class="kpi">
-          <span class="pill">Incubation: ~12h–5d</span>
-          <span class="pill">Most infections: mild/asymptomatic</span>
-          <span class="pill">With proper care: CFR &lt; 1%</span>
-          <span class="pill">Thai: <strong>อหิวาตกโรค</strong></span>
-        </div>
+      <h1>Cholera (อหิวาตกโรค)</h1>
+      <p>Cholera is a water- and food-borne disease caused by <em>Vibrio cholerae</em>. Highly treatable with prompt rehydration.</p>
+      <div class="kpi">
+        <span class="pill">Incubation: ~12h–5d</span>
+        <span class="pill">Most cases mild</span>
+        <span class="pill">Fatality &lt; 1% w/ care</span>
+        <span class="pill">Thai: อหิวาตกโรค</span>
       </div>
     </section>
 
-    <!-- Alternating Sections -->
-    <section class="container stack">
-      <article id="basics" class="card row">
-        <figure class="media">
-          <img src="uploads/images/box1.png" alt="Cholera basics" loading="lazy"
-               onerror="this.onerror=null;this.src='uploads/images/default.png';">
-        </figure>
+    <!-- Content Cards (Basics, Symptoms, etc.) -->
+    <section class="container">
+      <article class="card row">
+        <div class="media"><img src="uploads/images/box1.png" alt="Basics"></div>
         <div class="content">
           <h2>Basics</h2>
-          <p>
-            Cholera spreads through unsafe water and food. Many people show no symptoms but still shed bacteria.
-            Symptoms typically begin 12h–5d after exposure. Early oral rehydration saves lives.
-          </p>
+          <p>Cholera spreads through unsafe water and food. Symptoms begin 12h–5d after exposure. Rehydration saves lives.</p>
         </div>
       </article>
-
-      <article id="symptoms" class="card row alt">
-        <figure class="media">
-          <img src="uploads/images/box2.png" alt="Cholera symptoms" loading="lazy"
-               onerror="this.onerror=null;this.src='uploads/images/default.png';">
-        </figure>
+      <article class="card row alt">
+        <div class="media"><img src="uploads/images/box2.png" alt="Symptoms"></div>
         <div class="content">
           <h2>Symptoms</h2>
           <ul>
-            <li>Watery diarrhea (“rice-water” stools).</li>
-            <li>Vomiting, thirst, cramps, dehydration.</li>
-            <li>Severe cases → shock & death within hours.</li>
+            <li>Watery diarrhea (“rice-water” stools)</li>
+            <li>Vomiting, cramps, dehydration</li>
+            <li>Severe cases → shock, death in hours</li>
           </ul>
         </div>
       </article>
-
-      <article id="prevention" class="card row">
-        <figure class="media">
-          <img src="uploads/images/box3.png" alt="Prevention tips" loading="lazy"
-               onerror="this.onerror=null;this.src='uploads/images/default.png';">
-        </figure>
+      <article class="card row">
+        <div class="media"><img src="uploads/images/box3.png" alt="Prevention"></div>
         <div class="content">
           <h2>Prevention</h2>
-          <p>
-            Drink safe water, eat cooked food hot, wash hands with soap, and use safe sanitation.
-            Oral cholera vaccines (OCV) help in outbreaks and endemic areas.
-          </p>
+          <p>Drink safe water, eat hot food, wash hands with soap, use sanitation. Vaccines help in outbreaks.</p>
         </div>
       </article>
-
-      <article id="treatment" class="card row alt">
-        <figure class="media">
-          <img src="uploads/images/box4.png" alt="Treatment methods" loading="lazy"
-               onerror="this.onerror=null;this.src='uploads/images/default.png';">
-        </figure>
+      <article class="card row alt">
+        <div class="media"><img src="uploads/images/box4.png" alt="Treatment"></div>
         <div class="content">
           <h2>Treatment</h2>
-          <p>
-            Immediate rehydration (ORS, IV fluids for severe cases) saves lives.  
-            Antibiotics may be used for severe cases. With care, mortality falls below 1%.
-          </p>
+          <p>ORS or IV fluids save lives. Antibiotics may be used for severe cases. With care, mortality falls below 1%.</p>
         </div>
       </article>
     </section>
 
-    <!-- Timeline / History -->
-    <section class="container stack">
-      <article id="global-history" class="card row">
+    <!-- Timeline -->
+    <section class="timeline">
+      <div class="timeline-item left" data-year="1820s">
         <div class="content">
-          <h2>Cholera & Thailand</h2>
-          <p>
-            Thailand faced cholera epidemics in the 19th and 20th centuries, particularly in Bangkok.  
-            Improved sanitation, water systems, and public health campaigns drastically reduced outbreaks.  
-            Today, cholera remains rare in Thailand thanks to strong prevention and treatment systems.
-          </p>
+          <h3>First Outbreaks</h3>
+          <p>Cholera reached Thailand in the early 19th century, spreading along trade routes.</p>
         </div>
-      </article>
+      </div>
+      <div class="timeline-item right" data-year="1900s">
+        <div class="content">
+          <h3>Bangkok Epidemics</h3>
+          <p>Major outbreaks occurred in Bangkok, leading to high mortality before sanitation improved.</p>
+        </div>
+      </div>
+      <div class="timeline-item left" data-year="1960s">
+        <div class="content">
+          <h3>Modernization</h3>
+          <p>Better water systems and public health campaigns reduced outbreaks across Thailand.</p>
+        </div>
+      </div>
+      <div class="timeline-item right" data-year="Today">
+        <div class="content">
+          <h3>Rare but Monitored</h3>
+          <p>Cholera is now rare in Thailand, but surveillance and vaccination remain important.</p>
+        </div>
+      </div>
     </section>
   </main>
 
