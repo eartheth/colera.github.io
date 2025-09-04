@@ -4,205 +4,159 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cholera (อหิวาตกโรค) — Guide & Thailand History</title>
-  <meta name="description" content="What cholera is, how it spreads, symptoms, prevention and treatment, plus a timeline of major cholera events in Thailand." />
+  <meta name="description" content="What cholera is, how it spreads, symptoms, prevention and treatment, plus a timeline of its impact in Thailand." />
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    :root{
-      --bg: #0b1020;            --text:#e8eefc; --sub:#b9c6e6;
-      --card:#131a33;           --muted:#8aa0d2; --accent:#7cc4ff;
-      --ok:#38c172;             --warn:#ffb400;  --bad:#ff6b6b;
-      --border:#263057;
+    /* Quick embedded styling (replace with styles.css if you have one) */
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #fdfdfd;
+      color: #333;
     }
-    [data-theme="light"]{
-      --bg:#f7f9ff; --text:#0c1530; --sub:#35456b;
-      --card:#ffffff; --muted:#5a6c9e; --accent:#1967d2;
-      --ok:#15803d; --warn:#b45309; --bad:#b91c1c; --border:#d9e2ff;
+    header, footer {
+      background: #004d40;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
     }
-    html,body{height:100%}
-    body{
-      margin:0; font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Poppins", Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 80% -10%, #1d2a52 0%, transparent 60%) , var(--bg);
-      color:var(--text);
+    header h1, footer p { margin: 0; }
+    .hero {
+      background: #e0f7fa;
+      padding: 3rem 2rem;
+      text-align: center;
     }
-    a{color:var(--accent); text-decoration: none;}
-    a:hover{ text-decoration: underline; }
-    .container{ max-width:1100px; margin:0 auto; padding: 24px; }
-    header{
-      position:sticky; top:0; z-index:10; backdrop-filter:saturate(180%) blur(8px);
-      background: color-mix(in oklab, var(--bg) 80%, transparent);
-      border-bottom:1px solid var(--border);
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero .lead { font-size: 1.2rem; max-width: 700px; margin: 0 auto 1.5rem; }
+    .kpi { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+    .pill {
+      background: #004d40;
+      color: #fff;
+      padding: .5rem 1rem;
+      border-radius: 50px;
+      font-size: .9rem;
     }
-    .nav{
-      display:flex; gap:14px; align-items:center; justify-content:space-between; padding:12px 24px;
+    .container { max-width: 1000px; margin: auto; padding: 2rem; }
+    .stack { display: flex; flex-direction: column; gap: 2rem; }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.1);
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
     }
-    .nav .links{display:flex; gap:12px; flex-wrap:wrap}
-    .brand{font-weight:700; letter-spacing:.2px}
-    .btn{
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px solid var(--border); padding:8px 12px; border-radius:10px;
-      background:linear-gradient(180deg, color-mix(in oklab, var(--card) 70%, transparent), var(--card));
-      color:var(--text); cursor:pointer;
-    }
-    .hero{
-      padding:48px 24px 8px; display:grid; gap:16px;
-    }
-    .hero h1{font-size: clamp(28px, 3.4vw, 48px); line-height:1.15; margin:0;}
-    .hero p{max-width:900px; margin:0; color:var(--sub)}
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px}
-    .card{
-      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.12);
-      margin-bottom:24px;
-    }
-    @media(min-width:860px){ .span-6{grid-column: span 6} .span-4{grid-column: span 4}}
-    h2{margin:.2em 0 .4em; font-size: clamp(22px, 2.2vw, 30px)}
-    h3{margin: .8em 0 .5em; font-size: clamp(19px, 1.7vw, 24px)}
-    ul,ol{margin:.3em 0 .8em 1.2em}
-    .kpi{display:flex; gap:14px; flex-wrap:wrap}
-    .pill{
-      border:1px solid var(--border); border-radius:999px; padding:8px 12px; color:var(--muted); background: color-mix(in oklab, var(--card) 88%, transparent);
-    }
-    .toc{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-    .toc a{border:1px solid var(--border); padding:8px 10px; border-radius:10px; background:var(--card)}
-    .badge{font-size:.85em; color:var(--muted)}
-    .table{width:100%; border-collapse: collapse; font-size:.97rem}
-    .table th,.table td{border-bottom:1px solid var(--border); padding:10px 8px; vertical-align: top}
-    .table th{color:var(--muted); text-align:left; font-weight:600}
-    .callout{
-      border-left:4px solid var(--accent); padding:10px 14px; background: color-mix(in oklab, var(--card) 88%, transparent);
-      border-radius:8px;
-    }
-    footer{margin:36px 0 24px; color:var(--muted); font-size:.95rem}
-    .top{ position: fixed; right:16px; bottom:16px; }
-    .muted{color:var(--muted)}
-    code{background: color-mix(in oklab, var(--card) 86%, transparent); border:1px solid var(--border); padding:.1em .4em; border-radius:6px}
-    .legend{display:flex; gap:10px; flex-wrap:wrap}
-    .dot{display:inline-block; width:.75em; height:.75em; border-radius:50%}
-    .ok{background:var(--ok)} .warn{background:var(--warn)} .bad{background:var(--bad)}
-
-    /* Big Box layout */
-    .bigbox{
-      display:flex;
-      flex-direction:column;
-      min-height:80vh;
-      overflow:hidden;
-    }
-    .box-header,.box-footer{
-      text-align:center;
-      padding:10px;
-      border:1px solid var(--border);
-      background:var(--card);
-      font-weight:600;
-    }
-    .box-main{
-      flex:1;
-      display:flex;
-    }
-    #content{
-      flex:1;
-      padding:12px;
-      overflow:auto;
-    }
-    #sidebar1,#sidebar2{
-      width:220px;  /* fixed width */
-      padding:12px;
-      border-left:1px solid var(--border);
-      overflow:auto;
-    }
-    .img-grid{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .img-grid img, #sidebar1 img, #sidebar2 img{
-      max-width:100%;
-      border-radius:8px;
-      display:block;
-    }
+    .card.row { flex-direction: row; }
+    .card.row.alt { flex-direction: row-reverse; }
+    .card .media { flex: 1 1 40%; min-width: 250px; }
+    .card .media img { width: 100%; height: auto; display: block; }
+    .card .content { flex: 1 1 60%; padding: 1.5rem; }
+    .card h2 { margin-top: 0; color: #004d40; }
+    footer { margin-top: 2rem; font-size: .9rem; }
   </style>
 </head>
-<body data-theme="dark">
-<header>
-  <div class="nav container">
-    <div class="brand">💧 Cholera (อหิวาตกโรค)</div>
-    <nav class="links">
-      <a href="#basics">Basics</a>
-      <a href="#symptoms">Symptoms</a>
-      <a href="#prevention">Prevention</a>
-      <a href="#treatment">Treatment</a>
-      <a href="#global-history">Global History</a>
-      <a href="#thai-history">Thailand History</a>
-      <a href="#references">References</a>
-    </nav>
-    <button id="theme" class="btn" aria-label="Toggle light/dark">🌓 Theme</button>
-  </div>
-</header>
+<body>
+  <header>
+    <h1>Cholera Guide</h1>
+  </header>
 
-<main class="container">
-  <!-- Big Box with Images -->
-  <section class="card bigbox">
-    <header class="box-header">Header</header>
-    <div class="box-main">
-      <div id="content" class="fluid">
-        <h3>Main Content (Fluid)</h3>
-        <div class="img-grid">
-          <img src="https://picsum.photos/400/250?random=1" alt="Random 1">
-          <img src="https://picsum.photos/400/250?random=2" alt="Random 2">
-          <img src="https://picsum.photos/400/250?random=3" alt="Random 3">
+  <main class="about">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Cholera (อหิวาตกโรค)</h1>
+        <p class="lead">
+          What it is, how to prevent it, and how it shaped Thailand's history.  
+          Cholera is a water- and food-borne disease caused by <em>Vibrio cholerae</em>,  
+          highly treatable with prompt rehydration.
+        </p>
+        <div class="kpi">
+          <span class="pill">Incubation: ~12h–5d</span>
+          <span class="pill">Most infections: mild/asymptomatic</span>
+          <span class="pill">With proper care: CFR &lt; 1%</span>
+          <span class="pill">Thai: <strong>อหิวาตกโรค</strong></span>
         </div>
       </div>
-      <aside id="sidebar1">
-        <h3>Sidebar 1</h3>
-        <img src="https://picsum.photos/200/300?random=4" alt="Sidebar 1">
-      </aside>
-      <aside id="sidebar2">
-        <h3>Sidebar 2</h3>
-        <img src="https://picsum.photos/200/300?random=5" alt="Sidebar 2">
-      </aside>
-    </div>
-    <footer class="box-footer">Footer</footer>
-  </section>
+    </section>
 
-  <!-- Your cholera content continues here -->
-  <section class="hero">
-    <h1>Cholera — what it is, how to prevent it, and how it shaped Thailand's history</h1>
-    <p>
-      Cholera is a water- and food-borne disease caused by <em>Vibrio cholerae</em>.
-      It can cause sudden, severe watery diarrhea and dehydration but is highly treatable with prompt rehydration.
-      This page explains the basics and charts key moments of cholera in Thailand (สยาม/ไทย) from the 19th century to today.
-    </p>
-    <div class="kpi">
-      <span class="pill">Incubation: ~12 hours–5 days</span>
-      <span class="pill">Most infections: mild/asymptomatic</span>
-      <span class="pill">With proper care: CFR &lt; 1%</span>
-      <span class="pill">Thai name: <strong>อหิวาตกโรค</strong></span>
-    </div>
-  </section>
+    <!-- Alternating Sections -->
+    <section class="container stack">
+      <article id="basics" class="card row">
+        <figure class="media">
+          <img src="uploads/images/box1.png" alt="Cholera basics" loading="lazy"
+               onerror="this.onerror=null;this.src='uploads/images/default.png';">
+        </figure>
+        <div class="content">
+          <h2>Basics</h2>
+          <p>
+            Cholera spreads through unsafe water and food. Many people show no symptoms but still shed bacteria.
+            Symptoms typically begin 12h–5d after exposure. Early oral rehydration saves lives.
+          </p>
+        </div>
+      </article>
 
-  <!-- (Keep the rest of your sections: basics, symptoms, prevention, treatment, history, etc. unchanged) -->
+      <article id="symptoms" class="card row alt">
+        <figure class="media">
+          <img src="uploads/images/box2.png" alt="Cholera symptoms" loading="lazy"
+               onerror="this.onerror=null;this.src='uploads/images/default.png';">
+        </figure>
+        <div class="content">
+          <h2>Symptoms</h2>
+          <ul>
+            <li>Watery diarrhea (“rice-water” stools).</li>
+            <li>Vomiting, thirst, cramps, dehydration.</li>
+            <li>Severe cases → shock & death within hours.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article id="prevention" class="card row">
+        <figure class="media">
+          <img src="uploads/images/box3.png" alt="Prevention tips" loading="lazy"
+               onerror="this.onerror=null;this.src='uploads/images/default.png';">
+        </figure>
+        <div class="content">
+          <h2>Prevention</h2>
+          <p>
+            Drink safe water, eat cooked food hot, wash hands with soap, and use safe sanitation.
+            Oral cholera vaccines (OCV) help in outbreaks and endemic areas.
+          </p>
+        </div>
+      </article>
+
+      <article id="treatment" class="card row alt">
+        <figure class="media">
+          <img src="uploads/images/box4.png" alt="Treatment methods" loading="lazy"
+               onerror="this.onerror=null;this.src='uploads/images/default.png';">
+        </figure>
+        <div class="content">
+          <h2>Treatment</h2>
+          <p>
+            Immediate rehydration (ORS, IV fluids for severe cases) saves lives.  
+            Antibiotics may be used for severe cases. With care, mortality falls below 1%.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Timeline / History -->
+    <section class="container stack">
+      <article id="global-history" class="card row">
+        <div class="content">
+          <h2>Cholera & Thailand</h2>
+          <p>
+            Thailand faced cholera epidemics in the 19th and 20th centuries, particularly in Bangkok.  
+            Improved sanitation, water systems, and public health campaigns drastically reduced outbreaks.  
+            Today, cholera remains rare in Thailand thanks to strong prevention and treatment systems.
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
 
   <footer>
-    Last updated: <span id="today"></span>.
+    <p>&copy; 2025 Cholera Guide. All rights reserved.</p>
   </footer>
-</main>
-
-<a class="btn top" href="#top" title="Back to top">↑ Top</a>
-
-<script>
-  // Theme toggle with localStorage
-  (function(){
-    const root = document.body;
-    const key = "cholera-theme";
-    const btn = document.getElementById("theme");
-    const saved = localStorage.getItem(key);
-    if(saved === "light") root.setAttribute("data-theme","light");
-    btn.addEventListener("click", () => {
-      const isLight = root.getAttribute("data-theme")==="light";
-      root.setAttribute("data-theme", isLight ? "dark" : "light");
-      localStorage.setItem(key, isLight ? "dark":"light");
-    });
-    document.getElementById("today").textContent =
-      new Date().toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'});
-  })();
-</script>
 </body>
 </html>
